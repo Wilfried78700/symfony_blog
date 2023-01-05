@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center mt-3">Bienvenue sur <span class="badge bg-success fs-1 p-2 text-dark">Sneakers</span></h1>
+
+    <p class="mx-auto text-center">
+        Découvrez les dernières sneakers <a href="{{ path('app_subscribe') }}" class="text-white fst-italic"> S'inscrire </a> ou <a href="{{ path('app_login') }}" class="text-white fst-italic"> Me connecter </a>
+    </p>
+
+
+    <div class="d-flex flex-wrap justify-content-evenly">
+        {% for artiste in artistes %}
+
+			<div class="d-flex flex-column col-2 mx-2">
+                <div class="rounded pt-3">
+                    <img src="{{ vich_uploader_asset(artiste) }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <h5 class="text-center"> <a href="{{ path('app_artiste', {id:artiste.id}) }}" class="text-decoration-none text-white"> {{ artiste }} </a></h5>
+            </div>
+        {% endfor %}
+
+	</div>
+
+    <div class="text-decoration-none text-center mt-3">
+    <ul>
+        <li><a href="">Sneakers1</a></li>
+        <li><a href="">Sneakers2</a></li>
+        <li><a href="">Sneakers3</a></li>
+        <li><a href="">Sneakers4</a></li>
+    </ul>
+    </div>
+
+{% endblock %}
